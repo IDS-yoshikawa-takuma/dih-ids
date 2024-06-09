@@ -77,9 +77,9 @@
             スクリプトを用いてHTMLファイルを生成する。
 
                 $ python3 md2html.py --src-md-path example.md --dist-html-path example.html
-            
+
             これにて**example.html**が生成される。
-    
+
     ## 4.b.文章デザインを適用したHTMLファイルを生成する
     !!! indent ""
         文章デザインを適用したHTMLファイルを生成するチュートリアルである。
@@ -114,7 +114,7 @@
             スクリプトを用いてHTMLファイルを生成する。
 
                 $ python3 md2html.py --src-md-path example.md --src-css-path example.css --dist-html-path example.html
-            
+
             これにて文章デザインを適用が適用された**example.html**が生成される。<br />
             また、CSSファイルのデータがHTMLファイルに埋め込まれている。
 
@@ -137,7 +137,7 @@
                 これはチュートリアルです。
 
                 ![画像](./images/img.1.img-1.drawio.png)
-            
+
             Markdownの記法にて画像を埋め込む記述する。
 
         ### 4.c.3.画像ファイルの配置
@@ -153,7 +153,7 @@
             スクリプトを用いてHTMLファイルを生成する。
 
                 $ python3 md2html.py --src-md-path example.md --dist-html-path example.html
-            
+
             これにて画像が埋め込まれた**example.html**が生成される。<br />
             また、画像ファイルのデータがHTMLファイルに埋め込まれている。
 
@@ -165,7 +165,7 @@
     !!! indent ""
         本文中にインデントを用いることができる。<br />
         インデントは[Python-MarkdwonのAdmonition拡張機能](https://python-markdown.github.io/extensions/admonition/)を用いる。<br />
-        
+
         ### 5.a.1.CSSファイルの記述
         !!! indent ""
             インデントのスタイルを記述するためのCSSファイルに以下の記述をする。
@@ -176,7 +176,7 @@
                     padding-left: 20px;　/* これにより右に字下げ */
                     border-left: 1px solid #eeeeee;　/* 左側の線 */
                 }
-        
+
         ### 5.a.2.本文へのインデントの記述
         !!! indent ""
             本文中でインデントを用いる際は以下のように記述する。
@@ -186,7 +186,7 @@
                 # インデント
                 !!! indent ""
                     ここにインデントする文章を記述する。
-                
+
                 この文章はインデントされない。
 
             これにてインデントされた文章が生成される。
@@ -283,7 +283,7 @@
                         html_content = md.convert(markdown_content)
 
                         return '<body>' + html_content + '</body>'
-                    
+
                     def AddHead(self, html_content):
                         def _addCSS():
                             if not self.args.src_css_path:
@@ -293,12 +293,12 @@
                                     css_data = f.read()
                                     return f'<style>{css_data}</style>'
 
-                        def _makeTitle():        
+                        def _makeTitle():
                             # ファイル名を取得し、拡張子を除去
                             file_name = os.path.basename(self.args.dist_html_path)
                             title = os.path.splitext(file_name)[0]
                             return title
-                    
+
                         s = '<head>'
                         s += _addCSS()
                         s += '<title>{}</title>'.format(_makeTitle())
@@ -309,7 +309,7 @@
                         with open(self.args.dist_html_path, 'w', encoding='utf-8') as file:
                             file.write(html_content)
                         print(f'HTML file generated: {self.args.dist_html_path}')
-                    
+
                     def AddHTML(self, html_content):
                         return '<!DOCTYPE html><html>' + html_content + '</html>'
 
@@ -338,13 +338,13 @@
                 | --src-md-path | ○ | 変換元のMarkdownファイルのパス |
                 | --src-css-path | - | 変換元のCSSファイルのパス |
                 | --dist-html-path | ○ | 変換先のHTMLファイルのパス |
-        
+
         ### 必要な外部ライブラリ <a id="furoku-convert-script-require-lib"></a>
         !!! indent ""
             スクリプトは以下の外部ライブラリを使用する。
 
             - [Python-Markdown](https://python-markdown.github.io/)
-        
+
         ### 拡張機能カススタイズ
         !!! indent ""
             [スクリプト本文中](#furoku-convert-script-this)の**# 拡張機能を有効化**の部分にて拡張機能のカスタマイズを行うことができる。<br />
@@ -352,4 +352,8 @@
 
     ## 生成元ファイルのサンプル
     !!! indent ""
-        本ドキュメントの生成元たるファイルの一式は[此処](https://github.com/TakumaYoshikawa/dih/tree/master/src/docs)にあり。
+        本ドキュメントの生成元たるファイルの一式は[此処](https://github.com/IDS-yoshikawa-takuma/dih-ids)にあり。
+
+---
+
+![](./images/logo_s.png)
